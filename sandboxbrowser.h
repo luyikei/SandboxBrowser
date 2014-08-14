@@ -26,6 +26,8 @@ private slots:
 
     void on_tabWidget_tabCloseRequested(int index);
 
+    void on_newBadChild_clicked();
+
 private:
     Ui::SandboxBrowser *ui;
 

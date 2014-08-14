@@ -64,3 +64,9 @@ void SandboxBrowser::startProcessInTab(const QString &executable, QStringList &a
     arguments << QString::number(container->winId());
     process->start(executable, arguments);
 }
+
+void SandboxBrowser::on_newBadChild_clicked()
+{
+    QStringList arguments;
+    startProcessInTab("../build-SandboxBrowserBadChildProcess-Qt_4-Debug/SandboxBrowserBadChildProcess", arguments);
+}

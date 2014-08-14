@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QX11EmbedContainer>
+#include <QList>
+#include <QProcess>
 
 namespace Ui {
 class SandboxBrowser;
@@ -22,8 +24,14 @@ private slots:
 
     void on_terminalButton_clicked();
 
+    void on_tabWidget_tabCloseRequested(int index);
+
 private:
     Ui::SandboxBrowser *ui;
+
+    QList<QProcess*>processes;
+
+    void startProcessInTab(const QString &executable, QStringList &arguments);
 };
 
 #endif // SANDBOXBROWSER_H

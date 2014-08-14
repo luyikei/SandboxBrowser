@@ -18,7 +18,9 @@ public:
 
 private slots:
 
-    void on_pushButton_clicked();
+    void on_newTabButton_clicked();
+
+    void on_terminalButton_clicked();
 
 private:
     Ui::SandboxBrowser *ui;

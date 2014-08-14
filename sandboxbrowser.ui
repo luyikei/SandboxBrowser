@@ -6,23 +6,30 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>529</width>
+    <height>431</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>SandboxBrowser</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QPushButton" name="pushButton">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QPushButton" name="newTabButton">
       <property name="text">
-       <string>PushButton</string>
+       <string>New Tab</string>
       </property>
      </widget>
     </item>
-    <item>
+    <item row="0" column="1">
+     <widget class="QPushButton" name="terminalButton">
+      <property name="text">
+       <string>New Terminal</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="2">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
        <number>-1</number>
@@ -36,7 +43,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>529</width>
      <height>18</height>
     </rect>
    </property>

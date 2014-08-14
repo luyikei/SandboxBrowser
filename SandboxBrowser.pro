@@ -11,10 +11,13 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = SandboxBrowser
 TEMPLATE = app
 
+LIBS += -lseccomp
 
 SOURCES += main.cpp\
-        sandboxbrowser.cpp
+        sandboxbrowser.cpp \
+    sandboxprocess.cpp
 
-HEADERS  += sandboxbrowser.h
+HEADERS  += sandboxbrowser.h \
+    sandboxprocess.h
 
 FORMS    += sandboxbrowser.ui

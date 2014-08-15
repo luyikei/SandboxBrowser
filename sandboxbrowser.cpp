@@ -6,6 +6,10 @@
 #include <QX11EmbedWidget>
 #include <QVBoxLayout>
 #include <QtGui>
+#include <QDebug>
+
+#include <sys/time.h>
+#include <sys/resource.h>
 
 #include "sandboxprocess.h"
 
@@ -53,6 +57,15 @@ void SandboxBrowser::on_tabWidget_tabCloseRequested(int index)
 
 void SandboxBrowser::startProcessInTab(const QString &executable, QStringList &arguments)
 {
+    struct rlimit rl;
+    getrlimit(RLIMIT_STACK, &rl);
+    qDebug() << QString("RLIMIT_STACK cur %1 max %2").arg(rl.rlim_cur).arg(rl.rlim_max);
+
+    getrlimit(RLIMIT_DATA, &rl);
+    qDebug() << QString("RLIMIT_DATA cur %1 max %2").arg(rl.rlim_cur).arg(rl.rlim_max);
+
+    getrlimit(RLIMIT_AS, &rl);
+    qDebug() << QString("RLIMIT_AS cur %1 max %2").arg(rl.rlim_cur).arg(rl.rlim_max);
 
     QX11EmbedContainer *container = new QX11EmbedContainer(ui->tabWidget);
     container->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);

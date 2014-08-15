@@ -32,9 +32,14 @@ void SandBoxProcess::setupChildProcess()
     // rlimit
     {
         struct rlimit limit;
-        limit.rlim_cur = 131072;limit.rlim_max = 131072;
-        setrlimit(RLIMIT_STACK, &limit);
-        setrlimit(RLIMIT_DATA, &limit);
+        int r;
+        limit.rlim_cur = 1024 * 1024 * 1024;limit.rlim_max = 1024 * 1024 * 1024;
+        r = setrlimit(RLIMIT_DATA, &limit);
+
+        struct rlimit as;
+        as.rlim_max = 1024 * 1024 * 1024;as.rlim_cur = 1024 * 1024 * 1024;
+        r = setrlimit(RLIMIT_AS, &as);
+
     }
 
 }
